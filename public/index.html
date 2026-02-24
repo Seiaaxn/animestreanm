@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeStream - Streaming Anime Premium</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <span class="logo-icon">▶</span>
+                    <span class="logo-text">AnimeStream</span>
+                </div>
+            </div>
+            
+            <nav class="navbar-menu">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="ongoing">Berlanjut</a>
+                <a href="#" class="nav-link" data-page="complete">Lengkap</a>
+                <a href="#" class="nav-link" data-page="genres">Genre</a>
+                <a href="#" class="nav-link" data-page="schedule">Jadwal</a>
+            </nav>
+
+            <div class="navbar-search">
+                <input type="text" id="searchInput" class="search-input" placeholder="Cari anime...">
+                <button class="search-btn">🔍</button>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Home Page -->
+        <section id="home-page" class="page active">
+            <!-- Featured Section -->
+            <div class="featured-section">
+                <div class="featured-slider">
+                    <div class="featured-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='600'%3E%3Crect fill='%23222' width='400' height='600'/%3E%3C/svg%3E" alt="Featured" class="featured-image">
+                        <div class="featured-overlay">
+                            <div class="featured-content">
+                                <h2 class="featured-title">Loading...</h2>
+                                <p class="featured-subtitle">Anime terbaru yang paling ditunggu</p>
+                                <button class="btn-watch">Tonton Sekarang</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Trending Sekarang</h2>
+                    <a href="#" class="see-all" data-page="complete">Lihat Semua</a>
+                </div>
+                <div class="anime-grid" id="trendingGrid">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </section>
+
+            <!-- New Release Section -->
+            <section class="section">
+                <div class="section-header">
+                    <h2 class="section-title">Update Terbaru</h2>
+                </div>
+                <div class="anime-grid" id="ongoingGrid">
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                    <div class="skeleton-card"></div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Browse Ongoing -->
+        <section id="ongoing-page" class="page">
+            <div class="page-header">
+                <h1>Anime Berlanjut</h1>
+                <p>Anime yang masih memiliki episode baru setiap minggu</p>
+            </div>
+            <div class="anime-grid-large" id="ongoingList">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+            <div class="pagination" id="ongoingPagination"></div>
+        </section>
+
+        <!-- Browse Complete -->
+        <section id="complete-page" class="page">
+            <div class="page-header">
+                <h1>Anime Lengkap</h1>
+                <p>Semua episode tersedia untuk ditonton kapan saja</p>
+            </div>
+            <div class="anime-grid-large" id="completeList">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+            <div class="pagination" id="completePagination"></div>
+        </section>
+
+        <!-- Genre Page -->
+        <section id="genres-page" class="page">
+            <div class="page-header">
+                <h1>Genre</h1>
+                <p>Pilih genre favorit Anda</p>
+            </div>
+            <div class="genre-grid" id="genresList">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Schedule Page -->
+        <section id="schedule-page" class="page">
+            <div class="page-header">
+                <h1>Jadwal Rilis</h1>
+                <p>Cek jadwal anime yang akan tayang</p>
+            </div>
+            <div class="schedule-container" id="scheduleContainer">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Search Results -->
+        <section id="search-page" class="page">
+            <div class="page-header">
+                <h1>Hasil Pencarian</h1>
+                <p id="searchQuery">Menampilkan hasil untuk: <span id="searchTerm"></span></p>
+            </div>
+            <div class="anime-grid-large" id="searchResults">
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+
+        <!-- Anime Detail Page -->
+        <section id="detail-page" class="page">
+            <div class="detail-container" id="detailContent">
+                <div class="skeleton-card"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Indicator -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Error Toast -->
+    <div class="toast" id="errorToast"></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <nav class="mobile-menu">
+            <a href="#" class="mobile-nav-link" data-page="home">Home</a>
+            <a href="#" class="mobile-nav-link" data-page="ongoing">Berlanjut</a>
+            <a href="#" class="mobile-nav-link" data-page="complete">Lengkap</a>
+            <a href="#" class="mobile-nav-link" data-page="genres">Genre</a>
+            <a href="#" class="mobile-nav-link" data-page="schedule">Jadwal</a>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
